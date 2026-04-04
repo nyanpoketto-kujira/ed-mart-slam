@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="Korean">
+    <Menu>
+        <Start Value="시작!"/>
+        <Settings Value="환경설정"/>
+        <Exit Value="바탕화면으로 나가기"/>
+        <Continue Value="계속하기"/>
+        <Restart Value="다시 시작하기"/>
+        <ExitToTitle Value="타이틀로 나가기"/>
+        <Yes Value="예"/>
+        <No Value="아니오"/>
+        <EnterToStart Value="Enter를 눌러 시작!"/>
+        <HighScore Value="최고 점수"/>
+        <MaxRep Value="최고 금액"/>
+        <Currency Value=" 원"/>
+        <Version Value="Version %.1f.1"/>
+        <PressEnterContinue Value="Enter를 눌러 계속"/>
+    </Menu>
+    <Settings>
+        <Title Value="환경설정"/>
+        <BackToTitle Value="타이틀로 돌아가기"/>
+        <ScreenMode Value="화면 모드: "/>
+        <Fullscreen Value="전체화면"/>
+        <Windowed Value="창"/>
+        <BGMVolume Value="배경음악 볼륨: %.1f"/>
+        <SFXVolume Value="효과음 볼륨: %.1f"/>
+        <ResetData Value="게임 상황 초기화"/>
+        <Credits Value="크래딧"/>
+        <ControlHint Value="상, 하 혹은 방향키로 조절"/>
+        <Language Value="언어: 한국어"/>
+    </Settings>
+    <Prompt>
+        <PauseTitle Value="일시정지"/>
+        <RestartConfirm Value="다시 시작할까요?"/>
+        <ExitToTitleConfirm Value="타이틀로 나갈까요?"/>
+        <ExitToDesktopConfirm Value="바탕화면으로 나갈까요?"/>
+        <ResetConfirm Value="초기화할까요?"/>
+        <ExitConfirm Value="메인화면으로 나갈까요?"/>
+        <TerminateSystem Value="Press ESC or Enter to terminate system..."/>
+    </Prompt>
+    <Intro>
+        <Disclaimer Value="본 프로그램은 '트릭컬:리바이브' 2차창작물이며, &#x000A;해당 게임의 캐릭터에 대한 모든 권한은 &#x000A;EPIDGames에 있음을 알립니다. &#x000A;&#x000A;(C)2025 EPIDGames. All Rights Reserved."/>
+    </Intro>
+    <Game>
+        <GameOver Value="GAME OVER"/>
+        <Score Value="점수: "/>
+        <EnterToMain Value="Enter를 눌러 메뉴로"/>
+        <HighScoreNew Value="HighScore!"/>
+        <HighRepNew Value="신기록!!"/>
+        <RepTitle Value="배상 명세서"/>
+        <Total Value="합계: "/>
+        <ItemBox Value="커피 박스 파손: %d개 x 25000원"/>
+        <ItemBottle Value="병 커피 파손: %d개 x 2500원"/>
+        <ItemCan Value="캔 커피 파손: %d개 x 1200원"/>
+        <ItemPeople Value="주변 사람 치료비: %d명 x 2000000원"/>
+        <ItemXion Value="시온 치료비: 1000000원"/>
+        <ItemHouse Value="집 탄 문서들 배상: %d개 x 100000원"/>
+        <EndingTimeOut1 Value="실패!!!"/>
+        <EndingTimeOut2 Value="시간초과!!!"/>
+        <EndingHitXion1 Value="진짜 실패!!!"/>
+        <EndingHitXion2 Value="이드는시온을다치게해!!!!!"/>
+        <EndingSuppressed1 Value="성공!!!"/>
+        <EndingSuppressed2 Value="이드! 진정시키기!"/>
+    </Game>
+    <Credit>
+        <Thanks Value="플레이 해주셔서 감사합니다!"/>
+        <Original Value="- Original Game BY -"/>
+        <Computer Value="- A Computer game BY -"/>
+        <Programming Value="- Programming &amp; Art -"/>
+        <Music Value="- Music -"/>
+        <Sound Value="- Effect sound -"/>
+        <FMOD Value="- Made using FMOD API BY -"/>
+    </Credit>
+</Language>

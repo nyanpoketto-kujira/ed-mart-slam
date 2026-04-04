@@ -1,5 +1,6 @@
 #pragma once
 #include <SDK_Scene.h>
+#include <SDK_Language.h>
 
 #include "Cover.h"
 
@@ -9,13 +10,8 @@ private:
 	float Opacity{1.0};
 	float Size{};
 	SDK::SinLoop SizeLoop{};
-
 public:
-	ZZZ(SDK::Vector2 PositionValue) {
-		Position = PositionValue;
-		SizeLoop.SetValue(0.0);
-	}
-	
+	ZZZ(SDK::Vector2 Pos) { Position = Pos; }
 	void RenderFunc() {
 		Begin();
 		SDK::Transform.Move(SDK::MoveMatrix, Position);
@@ -65,29 +61,8 @@ private:
 
 	SDK::Text Text{};
 
-	std::vector<std::wstring> CreditStr = {
-		L" ",
-		L"- Original Game BY -",
-		L"- A Computer game BY -",
-		L"- Programming & Art -",
-		L"- Music -",
-		L"- Effect sound -",
-		L"- Made using FMOD API BY -",
-		L" ",
-		L"플레이 해주셔서 감사합니다!"
-	};
-
-	std::vector<std::wstring> Compositor = {
-		L" ",
-		L"EPID Games",
-		L"mata_",
-		L"mata_",
-		L"Rob0ne\nContext Sensitive\nPixabay",
-		L"Context Sensitive\nPixabay",
-		L"Firelight Technologies Pty Ltd.",
-		L" ",
-		L" ",
-	};
+	std::vector<std::wstring> CreditStr;
+	std::vector<std::wstring> Compositor;
 
 	bool StartTextRender{};
 	bool TextRenderState{};
@@ -102,11 +77,13 @@ private:
 
 public:
 	CreditScreen() {
+		UpdateLanguageStrings();
+
 		SDK::System.SetBackColorRGB(78, 99, 151);
 		SDK::CameraControl.SetZoom(2.2);
 		SDK::CameraControl.Move(0.0, 0.3);
 
-		Text.Init(L"픽셀로보로보체", FW_DONTCARE);
+		Text.Init(SDK::FONTNAME.Main, FW_DONTCARE);
 		Text.SetAlign(ALIGN_MIDDLE);
 		Text.SetHeightAlign(HEIGHT_ALIGN_MIDDLE);
 		Text.SetLineGap(0.01);
@@ -116,6 +93,32 @@ public:
 
 		Rect.SetRenderType(RENDER_TYPE_STATIC);
 		Rect.SetColor(0.0, 0.0, 0.0);
+	}
+
+	void UpdateLanguageStrings() {
+		CreditStr = {
+			L" ",
+			GET_STR("CreditOriginal"),
+			GET_STR("CreditComputer"),
+			GET_STR("CreditProgramming"),
+			GET_STR("CreditMusic"),
+			GET_STR("CreditSound"),
+			GET_STR("CreditFMOD"),
+			L" ",
+			GET_STR("Thanks")
+		};
+
+		Compositor = {
+			L" ",
+			L"EPID Games",
+			L"mata_",
+			L"mata_",
+			L"Rob0ne\nContext Sensitive\nPixabay",
+			L"Context Sensitive\nPixabay",
+			L"Firelight Technologies Pty Ltd.",
+			L" ",
+			L" ",
+		};
 	}
 
 	void InputKey(SDK::KeyEvent& Event) {
@@ -131,18 +134,16 @@ public:
 		LightLoop.Update(LightOpacity, 0.2, 20.0, FrameTime);
 		NataLoop.Update(NataHeight, 0.05, 2.0, FrameTime);
 
-		// 나타가 좌우로 이동한다
 		NataPosition.x += 0.4 * (float)NataLookDir * FrameTime;
-		// 한 쪽 끝으로 가면 이동 방향을 반대로 바꾼다
 		if (NataPosition.x < SDK::ASP(-2.0) || NataPosition.x > SDK::ASP(2.0))
 			NataLookDir *= -1;
 
 		if (!EDExitState) {
 			XionTimer.Update(FrameTime);
 			if (XionTimer.CheckMiliSec(0.8, 1, CHECK_AND_INTERPOLATE))
-				SDK::Scene.AddObject(new ZZZ(SDK::Vector2(XionPosition + 0.3, 0.5)), "zzz", LAYER2);
+				SDK::Scene.AddObject(new ZZZ(SDK::Vector2(XionPosition + 0.3, 0.5)), "zzz", LAYER2);  
 		}
-		
+
 		if (!EDExitState) {
 			EDTimer.Update(FrameTime);
 			if (EDTimer.CheckMiliSec(BlinkInterval, 1, CHECK_AND_INTERPOLATE)) {
@@ -156,11 +157,9 @@ public:
 				}
 			}
 		}
-
 		else {
 			EDFrame = 0;
 		}
-
 
 		CreditTimer.Update(FrameTime);
 		if (!StartTextRender && CreditTimer.CheckMiliSec(12.96, 2, CHECK_AND_INTERPOLATE)) {
@@ -168,10 +167,10 @@ public:
 			TextRenderState = true;
 		}
 
-		if (StartTextRender && !TextRenderState && CreditTimer.CheckMiliSec(0.81, 3, CHECK_AND_INTERPOLATE)) 
+		if (StartTextRender && !TextRenderState && CreditTimer.CheckMiliSec(0.81, 3, CHECK_AND_INTERPOLATE))  
 			TextRenderState = true;
 
-		if (CurrentIndex < CreditStr.size() - 1 && StartTextRender && TextRenderState && CreditTimer.CheckMiliSec(5.67, 3, CHECK_AND_INTERPOLATE)) {
+		if (CurrentIndex < (int)CreditStr.size() - 1 && StartTextRender && TextRenderState && CreditTimer.CheckMiliSec(5.67, 3, CHECK_AND_INTERPOLATE)) {
 			TextRenderState = false;
 			CurrentIndex++;
 		}
@@ -185,7 +184,6 @@ public:
 
 		if (EDExitState) {
 			SDK::SoundTool.FadeOut(SDK::CHANNEL.BGM, 1.0, FrameTime);
-
 			SDK::Math.Lerp(CreditPosition, EDPosition, 3.0, FrameTime);
 			SDK::Math.Lerp(CreditHeight, 0.2, 3.0, FrameTime);
 			SDK::Math.Lerp(CreditZoom, 1.8, 3.0, FrameTime);
@@ -218,20 +216,20 @@ public:
 			Rect.Draw(0.0, 0.0, SDK::ASP(2.0), 2.0);
 
 		else {
-			// 총
+			// Gun
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, 1.8, 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 1.6, 1.6);
 			SDK::ImageTool.RenderImage(SDK::IMAGE.Gun);
 
-			// 바닥
+			// Floor
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, CreditPosition, -1.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, SDK::ASP(2.0) / SDK::Camera.Zoom, 2.0);
 			SDK::ImageTool.SetColorRGB(67, 76, 99);
 			SDK::ImageTool.RenderImage(SDK::SYSRES.COLOR_TEXTURE);
 
-			// 나타
+			// Nata
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, NataPosition.x, NataPosition.y + NataHeight);
 			if (NataLookDir == -1) {
@@ -248,8 +246,7 @@ public:
 			SDK::Transform.Scale(SDK::MoveMatrix, 0.7, 0.7);
 			SDK::ImageTool.RenderImage(SDK::IMAGE.Shadow);
 
-
-			// 생명장치
+			// Life machine
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, -2.0, -0.6);
 			SDK::Transform.Scale(SDK::MoveMatrix, 1.8, 1.5);
@@ -261,7 +258,7 @@ public:
 			SDK::Transform.Flip(FLIP_TYPE_H);
 			SDK::ImageTool.RenderImage(SDK::IMAGE.Machine);
 
-			// 소파 뒷 부분
+			// Sofa back
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, 1.3, -0.64);
 			SDK::Transform.Scale(SDK::MoveMatrix, 0.5, 0.3);
@@ -271,24 +268,23 @@ public:
 			SDK::Transform.Scale(SDK::MoveMatrix, 4.0, 4.0);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.Sofa, 0);
 
-			// 시온 몸통
+			// Xion
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, XionPosition, XionSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + XionSize);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditXionBack, 0);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditXion, 0);
 
-			// 이드 몸통
+			// ED
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, EDPosition, EDSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + EDSize);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditEDBack, EDFrame);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditED, EDFrame);
 
-
 			SDK::ColorClip.First();
 
-			// 소파 쿠션 부분
+			// Sofa cushion
 			Begin();
 			SDK::Transform.Scale(SDK::MoveMatrix, 4.0, 4.0);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.Sofa, 2);
@@ -296,13 +292,13 @@ public:
 
 			SDK::ColorClip.Second();
 
-			// 시온 다리 배경
+			// Xion leg back
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, XionPosition, XionSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + XionSize);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditXionBack, 1);
 
-			// 이드 다리 배경 
+			// ED leg back
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, EDPosition, EDSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + EDSize);
@@ -310,14 +306,13 @@ public:
 
 			SDK::ColorClip.End();
 
-
-			// 시온 다리
+			// Xion leg
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, XionPosition, XionSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + XionSize);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditXion, 1);
 
-			// 의자
+			// Chair
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, XionPosition + 0.18, -0.7);
 			SDK::Transform.Scale(SDK::MoveMatrix, 0.5, 0.5);
@@ -327,13 +322,13 @@ public:
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.2);
 			SDK::ImageTool.RenderImage(SDK::IMAGE.Chair);
 
-			// 이드 다리
+			// ED leg
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, EDPosition, EDSize * 0.5);
 			SDK::Transform.Scale(SDK::MoveMatrix, 2.0, 2.0 + EDSize);
 			SDK::ImageTool.RenderStaticSpriteSheet(SDK::IMAGE.CreditED, 3);
 
-			// TV 불빛
+			// TV light
 			Begin();
 			SDK::Transform.Move(SDK::MoveMatrix, 0.0, -1.4);
 			SDK::Transform.Scale(SDK::MoveMatrix, 4.0, 4.0);
@@ -343,7 +338,7 @@ public:
 			SDK::ImageTool.SetColor(0.0, 0.0, 0.0);
 			SDK::ImageTool.RenderImage(SDK::IMAGE.TV);
 
-			// 텍스트
+			// Text
 			if (!EDExitState) {
 				if (TextRenderState) {
 					if (CurrentIndex == 0) {
@@ -352,42 +347,38 @@ public:
 						SDK::Transform.Scale(SDK::MoveMatrix, 1.2, 1.2);
 						SDK::ImageTool.RenderImage(SDK::IMAGE.Title);
 					}
-
-					if (CurrentIndex == 6) {
+					else if (CurrentIndex == 6) {
 						Begin(RENDER_TYPE_STATIC);
 						SDK::Transform.Move(SDK::MoveMatrix, 0.0, 0.6);
 						SDK::Transform.Scale(SDK::MoveMatrix, 0.7, 0.7);
 						SDK::ImageTool.SetColor(1.0, 1.0, 1.0);
 						SDK::ImageTool.RenderImage(SDK::SYSRES.FMOD_LOGO);
 					}
-
-					if (CurrentIndex == 7) {
+					else if (CurrentIndex == 7) {
 						Begin(RENDER_TYPE_STATIC);
 						SDK::Transform.Move(SDK::MoveMatrix, 0.0, 0.75);
 						SDK::Transform.Scale(SDK::MoveMatrix, 0.7, 0.7);
 						SDK::ImageTool.SetColor(1.0, 1.0, 1.0);
 						SDK::ImageTool.RenderImage(SDK::SYSRES.SDK_LOGO);
 					}
-
 					else {
 						Text.SetAlign(ALIGN_MIDDLE);
 						Text.SetHeightAlign(HEIGHT_ALIGN_MIDDLE);
-
 						Text.SetColorRGB(255, 213, 80);
 						if (CurrentIndex == 8)
-							Text.Render(0.0, 0.85, 0.15, CreditStr[CurrentIndex].c_str());
+							Text.RenderWString(0.0, 0.85, 0.15, CreditStr[CurrentIndex]);
 						else
-							Text.Render(0.0, 0.95, 0.15, CreditStr[CurrentIndex].c_str());
+							Text.RenderWString(0.0, 0.95, 0.15, CreditStr[CurrentIndex]);
 
 						Text.SetColor(1.0, 1.0, 1.0);
-						Text.Render(0.0, 0.8, 0.08, Compositor[CurrentIndex].c_str());
+						Text.RenderWString(0.0, 0.8, 0.08, Compositor[CurrentIndex]);        
 					}
 				}
 
 				Text.SetAlign(ALIGN_LEFT);
 				Text.SetHeightAlign(HEIGHT_ALIGN_DEFAULT);
 				Text.SetColorRGB(255, 213, 80);
-				Text.Render(SDK::ASP(1.0) - 0.05, -0.95, 0.1, L"Enter를 눌러 계속");
+				Text.RenderWString(SDK::ASP(1.0) - 0.05, -0.95, 0.1, GET_STR("PressEnterContinue"));
 			}
 		}
 	}

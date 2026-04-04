@@ -1,5 +1,6 @@
 #pragma once
 #include "SDK_Object.h"
+#include "SDK_Language.h"
 
 class SDK_IntroScreen : public SDK::Object {
 private:
@@ -32,7 +33,7 @@ public:
 		BackGround.SetColorRGB(31, 31, 31);
 		BackGround.SetRenderType(RENDER_TYPE_STATIC);
 
-		Text.Init(L"«»ºø∑Œ∫∏∑Œ∫∏√º", FW_DONTCARE);
+		Text.Init(L"ÏïàÏÑ±Î°úÎ≥¥Î°úÎ≥¥Ï≤¥", FW_DONTCARE);
 		Text.SetAlign(ALIGN_MIDDLE);
 		Text.SetHeightAlign(HEIGHT_ALIGN_MIDDLE);
 		Text.EnableFixMiddle();
@@ -143,7 +144,7 @@ public:
 
 		else {
 			Text.SetOpacity(BackGroundOpacity);
-			Text.Render(0.0, 0.0, 0.1, L"∫ª ∞‘¿”¿∫ '∆Æ∏Øƒ√:∏ÆπŸ¿Ã∫Í' ∆“∞‘¿”¿∏∑Œ, \n«ÿ¥Á ∞‘¿”¿« ƒ≥∏Ø≈Õø° ¥Î«— ∏µÁ ±««—¿∫\nEPIDGames∞° º“¿Ø«‘¿ª æÀ∏≥¥œ¥Ÿ.\n\n(C)2025 EPIDGames. All Rights Reserved.");
+			Text.RenderWString(0.0, 0.0, 0.1, GET_STR("Disclaimer"));
 		}
 
 	}

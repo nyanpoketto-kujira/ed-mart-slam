@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="English">
+    <Menu>
+        <Start Value="Start!"/>
+        <Settings Value="Settings"/>
+        <Exit Value="Exit to Desktop"/>
+        <Continue Value="Continue"/>
+        <Restart Value="Restart"/>
+        <ExitToTitle Value="Exit to Title"/>
+        <Yes Value="Yes"/>
+        <No Value="No"/>
+        <EnterToStart Value="Press Enter to Start!"/>
+        <HighScore Value="High Score"/>
+        <MaxRep Value="Max Rep"/>
+        <Currency Value=" Won"/>
+        <Version Value="Version %.1f.1"/>
+        <PressEnterContinue Value="Press Enter to Continue"/>
+    </Menu>
+    <Settings>
+        <Title Value="Settings"/>
+        <BackToTitle Value="Back to Main Menu"/>
+        <ScreenMode Value="Screen Mode: "/>
+        <Fullscreen Value="Fullscreen"/>
+        <Windowed Value="Windowed"/>
+        <BGMVolume Value="BGM Volume: %.1f"/>
+        <SFXVolume Value="SFX Volume: %.1f"/>
+        <ResetData Value="Reset Game Data"/>
+        <Credits Value="Credits"/>
+        <ControlHint Value="Use arrow keys to adjust"/>
+        <Language Value="Language: English"/>
+    </Settings>
+    <Prompt>
+        <PauseTitle Value="PAUSED"/>
+        <RestartConfirm Value="Restart from the beginning?"/>
+        <ExitToTitleConfirm Value="Return to title screen?"/>
+        <ExitToDesktopConfirm Value="Exit to desktop?"/>
+        <ResetConfirm Value="Reset data?"/>
+        <ExitConfirm Value="Exit to Main Menu?"/>
+        <TerminateSystem Value="Press ESC or Enter to terminate system..."/>
+    </Prompt>
+    <Intro>
+        <Disclaimer Value="This program is a non-commercial production, &#x000A;and all rights to the characters in this game &#x000A;belong to EPIDGames. &#x000A;&#x000A;(C)2025 EPIDGames. All Rights Reserved."/>
+    </Intro>
+    <Game>
+        <GameOver Value="GAME OVER"/>
+        <Score Value="Score: "/>
+        <EnterToMain Value="Press Enter to Menu"/>
+        <HighScoreNew Value="New HighScore!"/>
+        <HighRepNew Value="New Record!!"/>
+        <RepTitle Value="Reparation Details"/>
+        <Total Value="Total: "/>
+        <ItemBox Value="Box Coffee: %d x 25000 Won"/>
+        <ItemBottle Value="Bottle Coffee: %d x 2500 Won"/>
+        <ItemCan Value="Can Coffee: %d x 1200 Won"/>
+        <ItemPeople Value="Hospital Bill: %d x 2000000 Won"/>
+        <ItemXion Value="Xion Medical: 1000000 Won"/>
+        <ItemHouse Value="Burned House Doc: %d x 100000 Won"/>
+        <EndingTimeOut1 Value="Failed!!!"/>
+        <EndingTimeOut2 Value="Time Up!!!"/>
+        <EndingHitXion1 Value="Really Failed!!!"/>
+        <EndingHitXion2 Value="Xion Hurt Badly!!!!!"/>
+        <EndingSuppressed1 Value="Success!!!"/>
+        <EndingSuppressed2 Value="Ed! Succesfully Suppressed!"/>
+    </Game>
+    <Credit>
+        <Thanks Value="Thank you for playing!"/>
+        <Original Value="- Original Game BY -"/>
+        <Computer Value="- A Computer game BY -"/>
+        <Programming Value="- Programming &amp; Art -"/>
+        <Music Value="- Music -"/>
+        <Sound Value="- Effect sound -"/>
+        <FMOD Value="- Made using FMOD API BY -"/>
+    </Credit>
+</Language>

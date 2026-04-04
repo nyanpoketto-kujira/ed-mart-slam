@@ -32,6 +32,7 @@ SDK::SDK_FORMAT_RESOURCE SDK::FORMAT;
 SDK::SDK_FILE_RESOURCE SDK::FILE;
 SDK::SDK_FONT_NAME_RESOURCE SDK::FONTNAME;
 SDK::SDK_MODE_RESOURCE SDK::MODE;
+SDK::SDK_LANGUAGE_RESOURCE SDK::LANG;
 
 std::wstring SDK::LOCALE;
 SDK::START_MODE_PTR SDK::START_MODE;
@@ -70,7 +71,7 @@ void SDK::SDK_System::SetupWindow() {
 	HideCursor();
 
 	if (MajorVersion < 4 || (MajorVersion == 4 && MinorVersion < 3)) {
-		int Result = MessageBox(NULL, L"±×·¡ÇÈÄ«µåÀÇ OpenGL Áö¿ø ¹öÀüÀÌ ³Ê¹« ³·½À´Ï´Ù. ÃÖ¼Ò OpenGL 4.3 ¹öÀüÀ» Áö¿øÇØ¾ß ÇÕ´Ï´Ù.", L"mata_SDK Error", MB_OK | MB_ICONINFORMATION);
+		int Result = MessageBox(NULL, L"ï¿½×·ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ OpenGL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ö¼ï¿½ OpenGL 4.3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Õ´Ï´ï¿½.", L"mata_SDK Error", MB_OK | MB_ICONINFORMATION);
 		if (Result == IDOK)
 			SDK::System.Exit();
 	}

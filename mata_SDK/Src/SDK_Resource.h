@@ -1,13 +1,13 @@
 #pragma once
 #include "SDK_Header.h"
 #include "SDK_EnumValue.h"
-#include "SDK_EnumValue.h"
 #include "SDK_ImageTool.h"
 #include "SDK_SoundTool.h"
 #include "SDK_Script.h"
 #include "SDK_Data.h"
 #include "SDK_FontLoader.h"
 #include "SDK_Text.h"
+#include "SDK_Language.h"
 
 namespace SDK {
 	// Declare the sprite resource here. 
@@ -118,7 +118,8 @@ namespace SDK {
 			// version 1.1.1
 			{DATA_TYPE_DIGIT, "Setting", "Fullscreen", 1, ""},
 			{DATA_TYPE_DIGIT, "Setting", "BGMVolume", 1.0, ""},
-			{DATA_TYPE_DIGIT, "Setting", "SFXVolume", 1.0, ""}
+			{DATA_TYPE_DIGIT, "Setting", "SFXVolume", 1.0, ""},
+			{DATA_TYPE_DIGIT, "Setting", "Language", (float)LANG_KOREAN, ""}
 		};
 	};
 
@@ -130,49 +131,51 @@ namespace SDK {
 
 	// Declare the global value here.
 	struct SDK_GLOBAL_RESOURCE {
-		// ÀÌÀü Ä³¸¯ÅÍ ÇÁ·¹ÀÓ ¹× Ä³¸¯ÅÍ ÇÁ·¹ÀÓ »ç¿ë °¡´É ¿©ºÎ
 		int PrevChFrame[10]{};
 		bool CreateAvailable[10]{ true, true, true, true, true, true, true, true, true, true };
 
-		// Å¸ÀÌÆ² ÀÎÆ®·Î Àç»ý ¿©ºÎ
+		// Intro played flag
 		bool TitleIntroPlayed{};
 
-		// °ÔÀÓ ¿À¹ö »óÅÂ
+		// Game state
 		bool GameOver{};
 
-		// Á¡¼ö
+		// Score
 		int Score{};
 
-		// ÆÄ±«ÇÏ°Å³ª ¶§¸° ¼ýÀÚ
+		// Destroyed items count
 		int DestroyedItems[6]{};
 
-		// °ÔÀÓ¿À¹ö ¿£µù
+		// Ending type
 		int Ending{};
 
-		// À¯Àú ¼³Á¤
+		// Sound settings
 		float BGMVolume{};
 		float SFXVolume{};
 
-		// ÀüÃ¼È­¸é ¿©ºÎ
+		// Screen settings
 		bool FullscreenAcvivated{};
 
-		// À¯Àú ÇÏÀÌ½ºÄÚ¾î
+		// High score data
 		int HighScore{};
 
-		//  À¯Àú ÃÖ´ë ¹è»ó±Ý
+		// Max rep data
 		int MaxRep{};
 
-		// ÀÌÀü ÃÖ°í ±â·Ï ´Þ¼º ¿©ºÎ
+		// High score achievement flags
 		bool IsHighScore{};
 		bool IsHighRep{};
 
-		// Æ©Åä¸®¾ó ¿­¶÷ ¿©ºÎ
+		// Tutorial requirement flag
 		bool NeedTutorial{};
+
+		// Current Language
+		int Language{};
 	};
 
 	// Declare the global font name here.
 	struct SDK_FONT_NAME_RESOURCE {
-		FontName Main = L"ÇÈ¼¿·Îº¸·Îº¸Ã¼";
+		FontName Main = L"ì•ˆì„±ë¡œë³´ë¡œë³´ì²´";
 	};
 
 	extern SDK_IMAGE_RESOURCE IMAGE;
@@ -182,6 +185,7 @@ namespace SDK {
 	extern SDK_FORMAT_RESOURCE FORMAT;
 	extern SDK_FILE_RESOURCE FILE;
 	extern SDK_FONT_NAME_RESOURCE FONTNAME;
+	extern SDK_LANGUAGE_RESOURCE LANG;
 }
 
 DWORD WINAPI ImageResourceLoader(LPVOID lpParam);
@@ -189,24 +193,11 @@ DWORD WINAPI SoundResourceLoader(LPVOID lpParam);
 DWORD WINAPI FileResourceLoader(LPVOID lpParam);
 DWORD WINAPI FontResourceLoader(LPVOID lpParam);
 
-///////////////////////////////
-// ¹°°Ç ±¸Á¶Ã¼
 typedef struct {
-	// Ä¿ÇÇ Á¾·ù
 	int Type;
-
-	// Ä¿ÇÇ À§Ä¡
 	SDK::Vector2 Position;
-
-	// À§ ¾Æ·¡ À§Ä¡ ¿©ºÎ
 	bool IsUpside;
-
-	// ÆÄ±« »óÅÂ
 	bool Destroyed;
-
-	// ¾Õ¿¡ »ç¶÷ÀÌ ¼­ÀÖ´ÂÁö ¿©ºÎ
 	bool IsPeopleFront;
-
-	// ½Ã¿ÂÀÌ ¸·¾Æ¼³ À§Ä¡ÀÎÁö ¿©ºÎ
 	bool IsXionFront;
 }ItemStruct;

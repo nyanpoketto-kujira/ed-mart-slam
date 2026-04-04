@@ -1,0 +1,28 @@
+name: Build Project Coffee
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build Solution
+      run: msbuild mata_SDK.sln /p:Configuration=Release /p:Platform=x64
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Eld-Mart-Slam-Exe
+        path: |
+          x64/Release/mata_SDK.exe
+          dll/*.dll

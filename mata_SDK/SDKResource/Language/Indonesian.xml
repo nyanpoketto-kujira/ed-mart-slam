@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="Indonesian">
+    <Menu>
+        <Start Value="Mulai!"/>
+        <Settings Value="Pengaturan"/>
+        <Exit Value="Keluar ke Desktop"/>
+        <Continue Value="Lanjutkan"/>
+        <Restart Value="Main Lagi"/>
+        <ExitToTitle Value="Kembali ke Menu Utama"/>
+        <Yes Value="Ya"/>
+        <No Value="Tidak"/>
+        <EnterToStart Value="Tekan Enter untuk Mulai!"/>
+        <HighScore Value="Skor Tertinggi"/>
+        <MaxRep Value="Jumlah Tertinggi"/>
+        <Currency Value=" Won"/>
+        <Version Value="Versi %.1f.1"/>
+        <PressEnterContinue Value="Tekan Enter untuk Lanjut"/>
+    </Menu>
+    <Settings>
+        <Title Value="Pengaturan"/>
+        <BackToTitle Value="Kembali ke Menu Utama"/>
+        <ScreenMode Value="Mode Layar: "/>
+        <Fullscreen Value="Layar Penuh"/>
+        <Windowed Value="Jendela"/>
+        <BGMVolume Value="Volume BGM: %.1f"/>
+        <SFXVolume Value="Volume SFX: %.1f"/>
+        <ResetData Value="Reset Data Game"/>
+        <Credits Value="Kredit"/>
+        <ControlHint Value="Gunakan tombol arah untuk mengatur"/>
+        <Language Value="Bahasa: Indonesia"/>
+    </Settings>
+    <Prompt>
+        <PauseTitle Value="BERHENTI SEJENAK"/>
+        <RestartConfirm Value="Main lagi dari awal?"/>
+        <ExitToTitleConfirm Value="Kembali ke menu utama?"/>
+        <ExitToDesktopConfirm Value="Keluar ke desktop?"/>
+        <ResetConfirm Value="Reset data?"/>
+        <ExitConfirm Value="Keluar ke Menu Utama?"/>
+        <TerminateSystem Value="Tekan ESC atau Enter untuk menutup sistem..."/>
+    </Prompt>
+    <Intro>
+        <Disclaimer Value="Game ini diproduksi untuk tujuan non-komersial, &#x000A;dan semua hak cipta terkait karakter dalam game ini &#x000A;adalah milik EPIDGames. &#x000A;&#x000A;(C)2025 EPIDGames. All Rights Reserved."/>
+    </Intro>
+    <Game>
+        <GameOver Value="PERMAINAN BERAKHIR"/>
+        <Score Value="Skor: "/>
+        <EnterToMain Value="Tekan Enter ke Menu"/>
+        <HighScoreNew Value="Skor Baru!"/>
+        <HighRepNew Value="Rekor Baru!!"/>
+        <RepTitle Value="Rincian Ganti Rugi"/>
+        <Total Value="Total: "/>
+        <ItemBox Value="Kopi Kotak: %d x 25000 Won"/>
+        <ItemBottle Value="Kopi Botol: %d x 2500 Won"/>
+        <ItemCan Value="Kopi Kaleng: %d x 1200 Won"/>
+        <ItemPeople Value="Biaya RS Orang: %d x 2000000 Won"/>
+        <ItemXion Value="Biaya RS Xion: 1000000 Won"/>
+        <ItemHouse Value="Dokumen Rumah Terbakar: %d x 100000 Won"/>
+        <EndingTimeOut1 Value="Gagal!!!"/>
+        <EndingTimeOut2 Value="Batas Waktu Habis!!!"/>
+        <EndingHitXion1 Value="Benar-benar Gagal!!!"/>
+        <EndingHitXion2 Value="Xion Terluka Parah!!!!!"/>
+        <EndingSuppressed1 Value="Berhasil!!!"/>
+        <EndingSuppressed2 Value="Ed! Berhasil Ditenangkan!"/>
+    </Game>
+    <Credit>
+        <Thanks Value="Terima kasih telah bermain!"/>
+        <Original Value="- Game Asli OLEH -"/>
+        <Computer Value="- Game Komputer OLEH -"/>
+        <Programming Value="- Pemrograman &amp; Seni -"/>
+        <Music Value="- Musik -"/>
+        <Sound Value="- Efek Suara -"/>
+        <FMOD Value="- Dibuat menggunakan FMOD API OLEH -"/>
+    </Credit>
+</Language>
