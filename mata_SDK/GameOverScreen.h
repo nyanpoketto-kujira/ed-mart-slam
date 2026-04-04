@@ -22,8 +22,8 @@ private:
 	SDK::Timer ShiverTimer{};
 
 	// Shiver values for animation
-	glm::vec2 ShiverValue{};
-	glm::vec2 ShiverValue2{};
+	SDK::Vector2 ShiverValue{};
+	SDK::Vector2 ShiverValue2{};
 
 	// Size offset for animation
 	float VerticalSize{};
@@ -74,7 +74,7 @@ private:
 	SDK::RectBrush Rect{};
 
 	// Total amount text shake
-	glm::vec2 TextShake{};
+	SDK::Vector2 TextShake{};
 	float TextShakeValue{0.05};
 	SDK::Timer TextShakeTimer{};
 
@@ -173,7 +173,7 @@ public:
 
 	void InputKey(SDK::KeyEvent& Event) {
 		if (Event.Type == WM_KEYDOWN && Event.Key == VK_RETURN) {
-			if (SDK::GLOBAL.Ending == GameOver_TimeOut || SDK::GLOBAL .Ending == GameOver_HitXion) {
+			if (SDK::GLOBAL.Ending == GameOver_TimeOut || SDK::GLOBAL.Ending == GameOver_HitXion) {
 				if (!ShowRep) {
 					ShowRep = true;
 					ScoreText.DisableShadow();
@@ -365,7 +365,7 @@ public:
 	void RenderRepResult() {
 		Rect.Draw(0.0, 0.0, SDK::ASP(2.0), 2.0, 0.0, 0.6);
 		float RenderHeight{ 0.8 };
-		for (int i = 0; i < CurrentSize; i++) {
+		for (int i = 0; i < (int)CurrentSize; i++) {
 			ScoreText.SetColor(1.0, 1.0, 1.0);
 			switch (RepVec[i].DestroyedType) {
 			case Item_BoxCoffee:

@@ -1,4 +1,5 @@
-﻿#include "SDK_Language.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include "SDK_Language.h"
 #include "SDK_StringTool.h"
 #include "Library/tinyxml/tinyxml.h"
 #include <filesystem>
