@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "SDK_Header.h"
 #include <map>
 #include <string>

@@ -163,6 +163,7 @@
     <ClCompile Include="Src\SDK_ObjectValue.cpp" />
     <ClCompile Include="Src\SDK_ResourceLoader.cpp" />
     <ClCompile Include="Src\SDK_Scene.cpp" />
+    <ClCompile Include="Src\SDK_Language.cpp" />
     <ClCompile Include="Src\SDK_LineBrush.cpp" />
     <ClCompile Include="Src\SDK_Math.cpp" />
     <ClCompile Include="Src\SDK_Main.cpp" />
@@ -236,6 +237,7 @@
     <ClInclude Include="Src\SDK_Resource.h" />
     <ClInclude Include="Src\SDK_IntroMode.h" />
     <ClInclude Include="Src\SDK_IntroScreen.h" />
+    <ClInclude Include="Src\SDK_Language.h" />
     <ClInclude Include="Src\SDK_LineBrush.h" />
     <ClInclude Include="Src\SDK_LoadingMode.h" />
     <ClInclude Include="Src\SDK_LoadingScreen.h" />

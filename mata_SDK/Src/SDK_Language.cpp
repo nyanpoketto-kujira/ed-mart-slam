@@ -1,4 +1,4 @@
-#include "SDK_Language.h"
+﻿#include "SDK_Language.h"
 #include "SDK_StringTool.h"
 #include "Library/tinyxml/tinyxml.h"
 #include <filesystem>
