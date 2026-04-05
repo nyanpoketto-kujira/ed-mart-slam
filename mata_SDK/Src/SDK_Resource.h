@@ -119,7 +119,7 @@ namespace SDK {
 			{DATA_TYPE_DIGIT, "Setting", "Fullscreen", 1, ""},
 			{DATA_TYPE_DIGIT, "Setting", "BGMVolume", 1.0, ""},
 			{DATA_TYPE_DIGIT, "Setting", "SFXVolume", 1.0, ""},
-			{DATA_TYPE_DIGIT, "Setting", "Language", (float)MATA_LANG_KOREAN, ""}
+			{DATA_TYPE_DIGIT, "Setting", "Language", (float)MATA_LANG_INDONESIAN, ""}
 		};
 	};
 
@@ -175,7 +175,7 @@ namespace SDK {
 
 	// Declare the global font name here.
 	struct SDK_FONT_NAME_RESOURCE {
-		FontName Main = L"안성로보로보체";
+		FontName Main = L"\ud53d\uc140\ub85c\ubcf4\ub85c\ubcf4\uccb4";
 	};
 
 	extern SDK_IMAGE_RESOURCE IMAGE;

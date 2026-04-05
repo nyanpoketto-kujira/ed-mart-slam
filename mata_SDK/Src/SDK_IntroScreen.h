@@ -33,7 +33,7 @@ public:
 		BackGround.SetColorRGB(31, 31, 31);
 		BackGround.SetRenderType(RENDER_TYPE_STATIC);
 
-		Text.Init(L"안성로보로보체", FW_DONTCARE);
+		Text.Init(SDK::FONTNAME.Main, FW_DONTCARE);
 		Text.SetAlign(ALIGN_MIDDLE);
 		Text.SetHeightAlign(HEIGHT_ALIGN_MIDDLE);
 		Text.EnableFixMiddle();

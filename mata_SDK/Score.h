@@ -13,7 +13,7 @@ private:
 
 public:
 	ScoreIndicator() {
-		Text.Init(L"픽셀로보로보체", FW_DONTCARE);
+		Text.Init(SDK::FONTNAME.Main, FW_DONTCARE);
 		Text.EnableShadow();
 		Text.SetShadow(0.1, -0.1, 0.7);
 	}

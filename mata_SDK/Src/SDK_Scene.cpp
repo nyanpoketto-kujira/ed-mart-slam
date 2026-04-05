@@ -437,5 +437,5 @@ void SDK::SDK_Scene::SwitchToErrorScreen() {
 	if (Value2Buffer.empty())
 		AddSystemObject(new SDK_ErrorMessage(ErrorTypeBuffer, Value1Buffer));
 	else
-		AddSystemObject(new SDK_ErrorMessage(ErrorTypeBuffer, Value1Buffer));
+		AddSystemObject(new SDK_ErrorMessage(ErrorTypeBuffer, Value1Buffer, Value2Buffer));
 }

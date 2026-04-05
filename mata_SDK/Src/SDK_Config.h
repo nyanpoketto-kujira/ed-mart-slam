@@ -87,7 +87,7 @@ constexpr int BLUR_EXECUTION = 10;
 
 //////////////////////////////////// File security Options
 // Application version
-constexpr float APPLICATION_VERSION = 1.1;
+constexpr float APPLICATION_VERSION = 1.3;
 
 // Data file security option
 // When this option is activated, the data file is saved as an encrypted file.
