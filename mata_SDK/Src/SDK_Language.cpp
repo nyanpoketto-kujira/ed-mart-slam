@@ -33,7 +33,7 @@ void SDK::SDK_LANGUAGE_RESOURCE::Load(int Lang) {
     TiXmlElement* Root = Doc.FirstChildElement("Language");
     if (!Root) return;
 
-    TiXmlElement* Category = Root.FirstChildElement();
+    TiXmlElement* Category = Root->FirstChildElement();
     while (Category) {
         TiXmlAttribute* Attribute = Category->FirstAttribute();
         while (Attribute) {
