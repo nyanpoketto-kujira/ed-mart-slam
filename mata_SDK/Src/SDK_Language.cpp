@@ -12,9 +12,9 @@ void SDK::SDK_LANGUAGE_RESOURCE::Load(int Lang) {
 
     std::string FileName;
     switch (Lang) {
-    case LANG_KOREAN:    FileName = "Korean.xml"; break;
-    case LANG_INDONESIAN: FileName = "Indonesian.xml"; break;
-    case LANG_ENGLISH:   FileName = "English.xml"; break;
+    case MATA_LANG_KOREAN:    FileName = "Korean.xml"; break;
+    case MATA_LANG_INDONESIAN: FileName = "Indonesian.xml"; break;
+    case MATA_LANG_ENGLISH:   FileName = "English.xml"; break;
     default:             FileName = "English.xml"; break;
     }
 
@@ -23,8 +23,8 @@ void SDK::SDK_LANGUAGE_RESOURCE::Load(int Lang) {
     TiXmlDocument Doc;
     if (!Doc.LoadFile(FilePath.c_str(), TIXML_ENCODING_UTF8)) {
         // Fallback to Korean if file not found
-        if (Lang != LANG_KOREAN) {
-             Load(LANG_KOREAN);
+        if (Lang != MATA_LANG_KOREAN) {
+             Load(MATA_LANG_KOREAN);
              return;
         }
         return;
