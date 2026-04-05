@@ -22,7 +22,6 @@ void SDK::SDK_LANGUAGE_RESOURCE::Load(int Lang) {
     
     TiXmlDocument Doc;
     if (!Doc.LoadFile(FilePath.c_str(), TIXML_ENCODING_UTF8)) {
-        // Fallback to Korean if file not found
         if (Lang != MATA_LANG_KOREAN) {
              Load(MATA_LANG_KOREAN);
              return;
@@ -33,12 +32,19 @@ void SDK::SDK_LANGUAGE_RESOURCE::Load(int Lang) {
     TiXmlElement* Root = Doc.FirstChildElement("Language");
     if (!Root) return;
 
+    // Logika parsing yang bener:
+    // Category (e.g., <Menu>) -> Entry (e.g., <Start Value="..."/>)
     TiXmlElement* Category = Root->FirstChildElement();
     while (Category) {
-        TiXmlAttribute* Attribute = Category->FirstAttribute();
-        while (Attribute) {
-            Strings[Attribute->Name()] = StringTool.Wstring(Attribute->Value());
-            Attribute = Attribute->Next();
+        TiXmlElement* Entry = Category->FirstChildElement();
+        while (Entry) {
+            const char* Key = Entry->Value(); // Ini dapet "Start", "Settings", dll
+            const char* Val = Entry->Attribute("Value"); // Ini dapet isi terjemahannya
+            
+            if (Key && Val) {
+                Strings[Key] = StringTool.Wstring(Val);
+            }
+            Entry = Entry->NextSiblingElement();
         }
         Category = Category->NextSiblingElement();
     }
@@ -50,7 +56,6 @@ const wchar_t* SDK::SDK_LANGUAGE_RESOURCE::Get(std::string Key) {
         return It->second.c_str();
     }
     
-    // Fallback: return key as wstring (should be rare)
     static std::wstring Fallback;
     Fallback = SDK::StringTool.Wstring(Key);
     return Fallback.c_str();
