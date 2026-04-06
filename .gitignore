@@ -363,6 +363,14 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# Game build artifacts & backups
+build_log.txt
+exe/*.exe.bak*
+exe/*.exe.be
+exe/*.exe.last
+exe/*.exe.real
+exe/*.exe.suc*
+
 # Not ignored files
 !mata_SDK/Src/Library/**
 !mata_SDK/SDKResource/**
