@@ -1,26 +1,49 @@
-# Eld Mart Slam - Indonesian Localization (Project Coffee SDK 7)
+# ![Eld Mart Slam](exe/Assets/Sprite/UI/title.png)
 
-Proyek ini adalah versi lokalisasi bahasa Indonesia dari game **Eld Mart Slam** yang dibangun menggunakan **mata_SDK 7**.
+## Eld Mart Slam - Indonesian Localization (Project Coffee SDK 7)
 
-### 🤖 Pengembang AI
-Seluruh proses modifikasi, penerjemahan, dan konfigurasi sistem build pada repository ini dilakukan melalui bantuan **Gemini CLI (AI Agent)**.
+Proyek ini adalah pelokalan bahasa Indonesia yang komprehensif untuk game **Eld Mart Slam**, dibangun menggunakan engine **mata_SDK 7**. Seluruh teks, aset, dan mekanisme telah dioptimalkan untuk pengalaman bermain yang lebih baik bagi pemain lokal.
 
-### 📍 Repository Asal
-Proyek ini di-fork dan dimodifikasi dari repository asli milik **mata0319**:
-- **Original Repo:** [GitLab - Project_Coffee_SDK_7](https://gitlab.com/mata0319/Project_Coffee_SDK_7.git)
+---
 
-### 🛠️ Apa Saja yang Dilakukan?
-Berikut adalah perubahan utama yang telah diimplementasikan dalam versi ini:
-1.  **Indonesian Localization:** Menerjemahkan seluruh UI utama, intro, disclaimer, dan pesan error dari bahasa Korea ke bahasa Indonesia.
-2.  **Multi-language Support (XML-based):** Mengubah sistem teks *hardcoded* menjadi sistem kamus berbasis file XML (`Indonesian.xml`, `English.xml`, `Korean.xml`).
-3.  **Language Selector:** Menambahkan opsi pemilihan bahasa di menu Pengaturan (*Settings*) yang tersimpan secara permanen.
-4.  **Automated Build System:** Menambahkan workflow **GitHub Actions** agar proyek ini bisa di-build secara otomatis menjadi file `.exe` setiap kali ada perubahan kode.
+### 🔥 Fitur Unggulan: Fever Mode
+Kita telah menambahkan dan menstabilkan mekanik **Fever Mode** yang membuat gameplay semakin intens:
+- **Omni-Break**: Saat Fever aktif, tombol apa saja (Kiri/Kanan/Bawah) bisa menghancurkan barang!
+- **Double Points**: Dapatkan skor ganda (20 poin) setiap kali menghancurkan rak di mode Fever.
+- **NPC Perk**: Menendang NPC akan memberikan bonus **+5 poin** ke bar Fever Meter.
+- **BGM Booster**: Musik (BGM) otomatis dipercepat ke **1.2x** saat Fever aktif untuk memacu adrenalin.
+- **Visual Effect**: Efek getaran layar (*screen shake*) dan *red tint* pada karakter ED saat dalam kondisi "panas".
 
-### 🚀 Cara Menjalankan
-1. Download file **Eld-Mart-Slam-Exe** dari tab **Actions**.
-2. Ekstrak file tersebut ke folder game asli (timpa file `.exe` yang lama).
-3. **PENTING:** Pastikan folder `SDKResource/Language` sudah ada di direktori game agar teks bisa muncul.
+---
+
+### 🛠️ Perubahan Teknis Utama
+1.  **Indonesian Localization**: Terjemahan lengkap UI, intro, dan pesan error menggunakan sistem XML dinamis.
+2.  **Language Selector**: Dukungan multi-bahasa (Indonesia, Inggris, Korea) yang tersimpan permanen di pengaturan.
+3.  **Stability Fix**: Perbaikan bug *circular dependency* dan missing includes pada variabel global SDK.
+4.  **Optimized Repository**: Ukuran repo telah diperkecil secara signifikan dengan pembersihan riwayat file sampah berukuran raksasa.
+
+---
+
+### 🚀 Cara Menjalankan & Build
+Detail teknis mengenai cara build manual menggunakan MSBuild dan konfigurasi lingkungan pengembang dapat ditemukan di:
+👉 **[GEMINI.md](GEMINI.md)**
+
+---
+
+### ⚠️ Catatan Kontributor (Post-Cleanup)
+Karena riwayat Git telah di-*rewrite* untuk pembersihan, kontributor harus melakukan sinkronisasi ulang:
+```bash
+git fetch origin
+git reset --hard origin/main
+```
+
+---
 
 ### 📜 Lisensi & Hak Cipta
-- Karakter dan aset dalam game ini adalah milik **EPIDGames** (Fan-made project).
-- Engine game asli (`mata_SDK`) dikembangkan oleh **mata0319**.
+- **Karakter & Aset**: Milik **EPIDGames** (Fan-made project).
+- **Engine Asli**: `mata_SDK` dikembangkan oleh **mata0319**.
+- **Modifikasi AI**: Proyek ini dikembangkan dan dirawat dengan bantuan **Gemini CLI (AI Agent)**.
+
+<p align="center">
+  <img src="exe/Assets/Sprite/People/ed-loading.png" alt="ED Ngintip" width="250">
+</p>
