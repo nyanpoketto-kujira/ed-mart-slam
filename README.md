@@ -42,6 +42,7 @@ git reset --hard origin/main
 ### 📜 Lisensi & Hak Cipta
 - **Karakter & Aset**: Milik **EPIDGames** (Fan-made project).
 - **Engine Asli**: `mata_SDK` dikembangkan oleh **mata0319**.
+- **Versi Original**: Mainkan versi aslinya di **[itch.io](https://mata-studio.itch.io/eld-mart-slam)**.
 - **Modifikasi AI**: Proyek ini dikembangkan dan dirawat dengan bantuan **Gemini CLI (AI Agent)**.
 
 <p align="center">
