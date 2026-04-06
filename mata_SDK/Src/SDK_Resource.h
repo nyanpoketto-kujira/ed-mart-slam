@@ -171,6 +171,10 @@ namespace SDK {
 
 		// Current Language
 		int Language{};
+
+		// --- FEVER MODE ---
+		bool FeverState{};
+		int FeverMeter{};
 	};
 
 	// Declare the global font name here.
