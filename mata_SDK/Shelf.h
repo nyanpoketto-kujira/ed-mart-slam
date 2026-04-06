@@ -1,5 +1,6 @@
 #pragma once
 #include <SDK_Scene.h>
+#include <SDK_Resource.h>
 
 #include "Explode.h"
 #include "DestroyedCan.h"

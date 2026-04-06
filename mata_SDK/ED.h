@@ -1,5 +1,6 @@
 #pragma once
 #include <SDK_Scene.h>
+#include <SDK_Resource.h>
 #include "Cover.h"
 
 class ED : public SDK::Object {

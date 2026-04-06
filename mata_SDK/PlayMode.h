@@ -1,5 +1,6 @@
 #pragma once
 #include <SDK_ModeHeader.h>
+#include <SDK_Resource.h>
 
 #include "ED.h"
 #include "Shelf.h"
